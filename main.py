@@ -12,8 +12,6 @@ todays_txt = f"{today}.txt"
 file_to_email = []
 file_to_email.append(f"Information on the Pool Table Usage From - {today}\n")
 
-
-
 def new_day_table_creator():
     for index in range(12):
         pool_table = PoolTable(index + 1)
@@ -36,14 +34,6 @@ def tables_data_from_json():
         pool_table = PoolTable.from_dictionary(dict_table)
         pool_tables.append(pool_table)
 
-
-
-
-
-
-
-
-
 def table_file_addition(table):
     file_to_email.append(f"Pool Table #{table.number} - Start Time {refined_time(table.start_time)} End Time {refined_time(table.end_time)} Total Time {time_played_conversion(table.total_time)} Cost ${table.total_cost}\n")
 
@@ -54,8 +44,6 @@ def admin_view():
                 print(f"Pool Table #{table.number} - OCCUPIED - Start time: {refined_time(table.start_time)} - Time Played: {time_played_conversion(get_the_time() - table.start_time)}")
         else:
             print(f"Pool Table #{table.number} - NOT OCCUPIED")
-
-
 
 def get_user_input():
     while True:
@@ -70,7 +58,6 @@ def get_user_input():
             print("ERROR: Please enter one of the available options!")
         except IndexError:
             print("ERROR: Please enter one of the available options!")
-        
 
 def book_the_table(table):
     if table.occupied == True:
@@ -134,9 +121,6 @@ def shutdown_functions():
         for i in range(12):
             file_object.write(file_to_email[i])
 
-
-
-
 def get_the_time(): #returns the time in seconds of the day, not in the hours or minutes
     hours_to_seconds = int(str(datetime.datetime.now())[11:13]) * 60 * 60
     minutes_to_seconds = int(str(datetime.datetime.now())[14:16]) * 60
@@ -159,30 +143,13 @@ def refined_time(time):
     minutes = round(((time % 3600) / 60))
     return str(f"{hours}:{minutes}")
 
-
-
 def calculate_cost(table):
     total_seconds = decimal.Decimal(table.total_time)
     total_cost = round(decimal.Decimal(total_seconds / 120), 2)
     table.total_cost = int(total_cost)
 
-
-# Need to ask for user input to book a table
-# If they can book that table, then you need to get the start time from the date module
-# Need to set up the start time in the booking function
-
-# Need to ask for user input to close a table
-# Once the table is closed it needs to update the file with the new table information
-
-# At the end of the day ~10:00pm need to send an email of the file to the owner and management team
-
-
-# Some sort of if statement that checks if the json file exists, if not then run the string for new day
-
-# Create an end day function at 11:00pm to close out all pool tables, total up all minutes and costs and export to json and text files
 if len(pool_tables) == 0:
     new_day_table_creator()
-
 
 while user_input != "q":
     admin_view()
