@@ -9,4 +9,4 @@ class PoolTable:
     
     @staticmethod
     def from_dictionary(dict):
-        return PoolTable(dict["number"], dict["start_time"], dict["end_time"], dict["total_time"], dict["occupied"]), dict["total_cost"]
+        return PoolTable(dict["number"], dict["start_time"], dict["end_time"], dict["total_time"], dict["occupied"], dict["total_cost"])
