@@ -2,6 +2,8 @@ import json
 import datetime
 import decimal
 from tableclass import PoolTable
+# import smtplib
+# from email.message import EmailMessage
 
 pool_tables = []
 dict_pool_tables = []
@@ -12,6 +14,65 @@ todays_json = f"{today}.json"
 todays_txt = f"{today}.txt"
 file_to_email = []
 file_to_email.append(f"Information on the Pool Table Usage From - {today}\n")
+
+# def send_the_file_to_email():
+#     msg = EmailMessage()
+#     msg['Subject'] = f"Pool Table Usage and Income - {today}"
+#     msg['From'] = "jacob.bankston.smile@gmail.com"
+#     msg['To'] = "jacob.bankston.smile@gmail.com"
+#     msg.preamble = f"Pool Table Usage and Income - {today}"
+#     with open(, 'r') as fp:
+
+# from smtplib import SMTP
+# from email.message import EmailMessage
+# from email.mime.text import MIMEText
+# from email.headerregistry import Address
+# from ssl import SSLContext, PROTOCOL_TLSv1_2
+
+# # Creating and populating email data:
+# msg = EmailMessage()
+# msg['From'] = Address(display_name='Jacob Bankston', addr_spec='jacob.bankston.smile@gmail.com')
+# msg['To'] = Address(display_name='Jacob Bankston', addr_spec='jacob.bankston.smile@gmail.com')
+# msg['Subject'] = f"Pool Table Usage and Income - {today}"    
+# msg.set_content("Attached to this email is the text file with the information on today's pool table usage.")  
+# # It is possible to use msg.add_alternative() to add HTML content too  
+
+# # Attaching content:
+# att = MIMEText('This should be in an attached file') # Or use MIMEImage, etc
+# # The following line is to control the filename of the attached file
+# att.add_header('Content-Disposition', 'attachment', filename='attachment.txt')
+# msg.make_mixed() # This converts the message to multipart/mixed
+# msg.attach(att) # Don't forget to convert the message to multipart first!
+
+# Sending the email:
+# with SMTP(host='smtp.example.org', port=587) as smtp_server:
+#     try:
+#         # You can choose SSL/TLS encryption protocol to use as shown
+#         # or just call starttls() without parameters
+#         smtp_server.starttls(context=SSLContext(PROTOCOL_TLSv1_2))
+#         smtp_server.login(user='user@smtp.example.org', password='password')
+#         smtp_server.send_message(msg)
+
+#     except Exception as e:                
+#         print('Error sending email. Details: {} - {}'.format(e.__class__, e))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 def check_for_new_day():
     try:
@@ -159,6 +220,9 @@ while user_input != "q":
     user_input = get_user_input()
     if user_input == "1":
         while True:
+            canceled = input("Are you sure you want to book a table? Press 'c' to cancel: ")
+            if canceled == 'c':
+                break
             table_booking = get_booking_input()
             if pool_tables[table_booking].occupied == True:
                 print(f"ERROR: Pool Table #{pool_tables[table_booking].number} is OCCUPIED.")
@@ -167,6 +231,9 @@ while user_input != "q":
         book_the_table(pool_tables[table_booking])
     if user_input == "2":
         while True:
+            canceled = input("Are you sure you want to close a table? Press 'c' to cancel: ")
+            if canceled == 'c':
+                break
             table_closing = get_closing_input()
             if pool_tables[table_closing].occupied == False:
                 print(f"ERROR: Pool Table #{pool_tables[table_closing].number} is NOT OCCUPIED.")
