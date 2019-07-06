@@ -1,0 +1,25 @@
+Information on the Pool Table Usage From - 2019-07-06
+Pool Table #1 - Start Time 16:45 End Time 16:54 Total Time 9 minutes Cost $4
+Pool Table #2 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #3 - Start Time 16:42 End Time 16:45 Total Time 3 minutes Cost $1
+Pool Table #4 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #5 - Start Time 16:42 End Time 16:54 Total Time 12 minutes Cost $5
+Pool Table #6 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #7 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #8 - Start Time 16:42 End Time 16:54 Total Time 12 minutes Cost $5
+Pool Table #9 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #10 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #11 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #12 - Start Time 16:42 End Time 16:45 Total Time 3 minutes Cost $1
+Pool Table #1 - Start Time 16:45 End Time 16:54 Total Time 9 minutes Cost $4
+Pool Table #2 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #3 - Start Time 16:42 End Time 16:45 Total Time 3 minutes Cost $1
+Pool Table #4 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #5 - Start Time 16:42 End Time 16:54 Total Time 12 minutes Cost $5
+Pool Table #6 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #7 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #8 - Start Time 16:42 End Time 16:54 Total Time 12 minutes Cost $5
+Pool Table #9 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #10 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #11 - Start Time 0:0 End Time 0:0 Total Time 0 minutes Cost $0
+Pool Table #12 - Start Time 16:42 End Time 16:45 Total Time 3 minutes Cost $1

@@ -2,8 +2,7 @@ import json
 import datetime
 import decimal
 from tableclass import PoolTable
-# import smtplib
-# from email.message import EmailMessage
+import yagmail
 
 pool_tables = []
 dict_pool_tables = []
@@ -15,48 +14,18 @@ todays_txt = f"{today}.txt"
 file_to_email = []
 file_to_email.append(f"Information on the Pool Table Usage From - {today}\n")
 
-# figuring out the email and smtp protocols!!!
+#receiver = "bosses_email@gmail.com"
+body = f"Here is the file from {today} that has the information on the Pool Tables. Included is information on Total Time and Costs for each table. Thanks!"
 
-# def send_the_file_to_email():
-#     msg = EmailMessage()
-#     msg['Subject'] = f"Pool Table Usage and Income - {today}"
-#     msg['From'] = "jacob.bankston.smile@gmail.com"
-#     msg['To'] = "jacob.bankston.smile@gmail.com"
-#     msg.preamble = f"Pool Table Usage and Income - {today}"
-#     with open(, 'r') as fp:
-
-# from smtplib import SMTP
-# from email.message import EmailMessage
-# from email.mime.text import MIMEText
-# from email.headerregistry import Address
-# from ssl import SSLContext, PROTOCOL_TLSv1_2
-
-# # Creating and populating email data:
-# msg = EmailMessage()
-# msg['From'] = Address(display_name='Jacob Bankston', addr_spec='jacob.bankston.smile@gmail.com')
-# msg['To'] = Address(display_name='Jacob Bankston', addr_spec='jacob.bankston.smile@gmail.com')
-# msg['Subject'] = f"Pool Table Usage and Income - {today}"    
-# msg.set_content("Attached to this email is the text file with the information on today's pool table usage.")  
-# # It is possible to use msg.add_alternative() to add HTML content too  
-
-# # Attaching content:
-# att = MIMEText('This should be in an attached file') # Or use MIMEImage, etc
-# # The following line is to control the filename of the attached file
-# att.add_header('Content-Disposition', 'attachment', filename='attachment.txt')
-# msg.make_mixed() # This converts the message to multipart/mixed
-# msg.attach(att) # Don't forget to convert the message to multipart first!
-
-# Sending the email:
-# with SMTP(host='smtp.example.org', port=587) as smtp_server:
-#     try:
-#         # You can choose SSL/TLS encryption protocol to use as shown
-#         # or just call starttls() without parameters
-#         smtp_server.starttls(context=SSLContext(PROTOCOL_TLSv1_2))
-#         smtp_server.login(user='user@smtp.example.org', password='password')
-#         smtp_server.send_message(msg)
-
-#     except Exception as e:                
-#         print('Error sending email. Details: {} - {}'.format(e.__class__, e))
+def send_email():
+    shutdown_functions()
+    with yagmail.SMTP() as yag:
+        yag.send(
+            #to = receiver,
+            subject = f"Pool Table Management Data from {today}",
+            contents = body, 
+            attachments = todays_txt,
+        )
 
 def check_for_new_day():
     try:
@@ -103,9 +72,9 @@ def admin_view():
 def get_user_input():
     while True:
         try:
-            user_input =  input("Select an option from below!\n  1 - Book a Table   2 - Close a Table   3 - Shut Down Application\n")
+            user_input =  input("Select an option from below!\n  1 - Book a Table   2 - Close a Table   3 - Shut Down Application   4 - Send Email File of Data\n")
             int_user_input = int(user_input)
-            if int_user_input < 1 and int_user_input > 3:
+            if int_user_input < 1 and int_user_input > 4:
                 print("ERROR: Please enter one of the available options!")
             else:
                 return user_input
@@ -228,3 +197,6 @@ while user_input != "q":
         shutdown_functions()
         print("\n\nBye!\n\n")
         user_input = "q"
+    if user_input == "4":
+        send_email()
+        print("Email has been sent!")
