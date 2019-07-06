@@ -15,6 +15,8 @@ todays_txt = f"{today}.txt"
 file_to_email = []
 file_to_email.append(f"Information on the Pool Table Usage From - {today}\n")
 
+# figuring out the email and smtp protocols!!!
+
 # def send_the_file_to_email():
 #     msg = EmailMessage()
 #     msg['Subject'] = f"Pool Table Usage and Income - {today}"
@@ -55,24 +57,6 @@ file_to_email.append(f"Information on the Pool Table Usage From - {today}\n")
 
 #     except Exception as e:                
 #         print('Error sending email. Details: {} - {}'.format(e.__class__, e))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 def check_for_new_day():
     try:
